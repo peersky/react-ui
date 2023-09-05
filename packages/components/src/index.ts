@@ -6,7 +6,6 @@ export * from "./HeadSEO";
 export * from "./Metadata";
 export * from "./NWCListItem";
 export * from "./Navbar";
-export * from "./Paginator";
 export * from "./PixelsCard";
 export * from "./RequireWeb3";
 export * from "./RouteButton";

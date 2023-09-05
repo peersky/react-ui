@@ -1,13 +1,10 @@
-export * as AppLayout from "./AppLayout";
-export * as BlogLayout from "./BlogLayout";
-export * as ContractLayout from "./ContractLayout";
 import { Box, chakra, Flex } from "@chakra-ui/react";
 import { Suspense } from "react";
 import React from "react";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import Scrollable from "../components/Scrollable";
-import _Sidebar from "../components/Sidebar";
+import {Footer} from "@peersky/react-components";
+import {Navbar} from "@peersky/react-components";
+import {Scrollable} from "@peersky/react-components";
+import {_Sidebar } from "@peersky/react-components";
 // import RootLayout from "./RootLayout";
 
 const _LayoutWrapper = ({

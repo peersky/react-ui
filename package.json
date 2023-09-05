@@ -24,7 +24,14 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:all": "tsc"
+    "build:types": "cd packages/hooks && yarn tsc",
+    "build:theme": "cd packages/theme && yarn tsc",
+    "build:hooks": "cd packages/hooks && yarn tsc",
+    "build:providers": "cd packages/providers && yarn tsc",
+    "build:layouts": "cd packages/layouts && yarn tsc",
+    "build:utils": "cd packages/utils && yarn tsc",
+    "build:components": "cd packages/components && yarn tsc",
+    "build:all": "yarn build:types && yarn build:theme && yarn build:hooks && yarn build:providers && yarn build:layouts && yarn build:utils && yarn build:components"
   },
   "author": "Peersky",
   "license": "MIT",

@@ -185,5 +185,5 @@ const _Navbar = ({
         // <Flex w="100px" h="100px" bgColor={"red.100"}>1</Flex>
     );
 };
-const Navbar = chakra(_Navbar);
+export const Navbar = chakra(_Navbar);
 export default Navbar;

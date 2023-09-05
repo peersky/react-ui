@@ -93,5 +93,5 @@ const _Scrollable = ({
   );
 };
 
-const Scrollable = chakra(_Scrollable);
+export const Scrollable = chakra(_Scrollable);
 export default Scrollable;

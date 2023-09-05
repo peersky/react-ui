@@ -12,7 +12,7 @@ import { MdDarkMode, MdLightMode } from "react-icons/md";
 import ChainSelector from "./ChainSelector";
 import {UIContext} from "@peersky/react-providers"
 
-const _Sidebar = ({
+export const _Sidebar = ({
   initialLogo = undefined,
   selectorSchema = undefined,
   metamaskSchema = undefined,

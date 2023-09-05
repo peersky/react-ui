@@ -61,7 +61,7 @@ const SocialButton = ({ children, label, href }: any) => {
   );
 };
 
-const Footer = ({
+export const Footer = ({
   colorScheme,
   initialLogo,
   ...props
