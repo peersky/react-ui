@@ -1,7 +1,7 @@
 {
   "name": "@peersky/utils",
   "version": "0.1.0",
-  "description": "Web3 enabled react components made for nextjs and chakra ui",
+  "description": "utils",
   "main": "src/index.ts",
   "type": "module",
   "files": [

@@ -5,7 +5,7 @@ const API = process.env.NEXT_PUBLIC_ENGINE_API_URL ?? process.env.NEXT_PUBLIC_PL
 
 export const http = (config, noAuth = false) => {
     const token = localStorage.getItem("APP_ACCESS_TOKEN");
-    const authorization = token && !noAuth ? {Authorization: `Moonstream ${token}`} : {};
+    const authorization = token && !noAuth ? {Authorization: `Peersky ${token}`} : {};
     const defaultHeaders = config.headers ?? {};
     const options = {
         ...config,
