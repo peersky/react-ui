@@ -1,7 +1,6 @@
 import { Flex, Box, chakra } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
-import useAppRouter from "../hooks/useRouter";
-// import mixpanel from "mixpanel-browser";
+import {useAppRouter} from "@peersky/react-hooks";
 const _Scrollable = ({
   className,
   children,

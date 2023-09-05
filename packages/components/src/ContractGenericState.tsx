@@ -1,6 +1,5 @@
 import { chakra, Editable as _Editable } from "@chakra-ui/react";
-import React, { useContext } from "react";
-import { AbiItem } from "web3-utils";
+import { AbiItem } from "viem";
 
 const _ContractGenericState = ({
   abi,

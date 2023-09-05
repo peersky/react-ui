@@ -7,7 +7,7 @@ import {
 import React, { useState } from "react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { getLayout as getSiteLayout } from ".";
-import { useAppRouter } from "../hooks/useRouter";
+import { useAppRouter } from "@peersky/react-hooks";
 import Link from "next/link";
 export const BreadcumpLayout = (props: any) => {
   const [path, setPath] = useState<String[]>([]);

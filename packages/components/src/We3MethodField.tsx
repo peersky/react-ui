@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   Box,
   Flex,
@@ -15,7 +15,7 @@ import {
   Select,
   Heading,
 } from "@chakra-ui/react";
-import { JsonFragmentType } from "@ethersproject/abi";
+import { AbiParameter } from "abitype";
 import { isBytes, stringToHex } from "viem";
 import {
   UITupleFragmentField,
@@ -24,7 +24,7 @@ import {
   UINumberFragmentField,
   UIStringFragmentFieldArray,
   UINUmberFragmentFieldArray,
-} from "@nw3c/types";
+} from "@peersky/react-types";
 const BoolInputItem = ({
   uiFragment,
   abiItem,
@@ -33,7 +33,7 @@ const BoolInputItem = ({
   colorScheme,
 }: {
   colorScheme?: string;
-  abiItem: JsonFragmentType;
+  abiItem: AbiParameter;
   uiFragment: UIFragmentField;
   dispatchArguments: React.Dispatch<{
     value: any;
@@ -67,7 +67,7 @@ const Bytes32InputItem = ({
   onKeyPress,
   colorScheme,
 }: {
-  abiItem: JsonFragmentType;
+  abiItem: AbiParameter;
   uiFragment: UIStringFragmentField;
   dispatchArguments: any;
   index: any;
@@ -135,7 +135,7 @@ const NumberInputItem = ({
 }: {
   onKeyPress: any;
   colorScheme?: string;
-  abiItem: JsonFragmentType;
+  abiItem: AbiParameter;
   uiFragment: UINumberFragmentField;
   dispatchArguments: React.Dispatch<{
     value: any;
@@ -210,7 +210,7 @@ const AddressInputItem = ({
 }: {
   colorScheme?: string;
   onKeyPress: any;
-  abiItem: JsonFragmentType;
+  abiItem: AbiParameter;
   uiFragment: UIStringFragmentField;
   dispatchArguments: React.Dispatch<{
     value: any;
@@ -262,7 +262,7 @@ const StringInputItem = ({
 }: {
   colorScheme?: string;
   onKeyPress: any;
-  abiItem: JsonFragmentType;
+  abiItem: AbiParameter;
   uiFragment: UIStringFragmentField;
   dispatchArguments: any;
   index: any;
@@ -313,7 +313,7 @@ const BatchAddress = ({
 }: {
   colorScheme?: string;
   onKeyPress: any;
-  abiItem: JsonFragmentType;
+  abiItem: AbiParameter;
   uiFragment: UIStringFragmentFieldArray;
   dispatchArguments: React.Dispatch<{
     value: any;
@@ -361,7 +361,7 @@ const BatchNumber = ({
 }: {
   colorScheme?: string;
   onKeyPress: any;
-  abiItem: JsonFragmentType;
+  abiItem: AbiParameter;
   uiFragment: UINUmberFragmentFieldArray;
   dispatchArguments: React.Dispatch<{
     value: any;
@@ -422,7 +422,7 @@ const TupleInputItem = ({
 }: {
   colorScheme?: string;
   onKeyPress: any;
-  abiItem: JsonFragmentType;
+  abiItem: AbiParameter;
   uiFragment: UITupleFragmentField;
   dispatchArguments: React.Dispatch<{
     value: any;
@@ -455,9 +455,9 @@ const TupleInputItem = ({
       <Heading as="h4" size="sm">
         {abiItem.name}
       </Heading>
-      {abiItem?.components &&
+      {("components" in abiItem) &&
         abiItem.components?.map(
-          (internalProperty: JsonFragmentType, idx: number) => {
+          (internalProperty: AbiParameter, idx: number) => {
             return (
               <Web3MethodField
                 key={`tuple-${idx}`}
@@ -494,7 +494,7 @@ const Web3MethodField = ({
     valueIsEther?: boolean;
     convertToBytes?: boolean;
   }>;
-  abiItem: JsonFragmentType;
+  abiItem: AbiParameter;
   uiFragment: UIFragmentField;
   index: number;
   onKeyPress: (e: KeyboardEvent) => void;

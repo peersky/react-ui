@@ -1,4 +1,4 @@
-import React, {Fragment, KeyboardEventHandler, useContext, useState} from "react";
+import React, {useState} from "react";
 import {
     Flex,
     Button,
@@ -15,15 +15,13 @@ import {
     Select,
     FormLabel,
 } from "@chakra-ui/react";
-import {useMutation} from "react-query";
-import {useToast} from "@nw3c/hooks";
+import {useToast} from "@peersky/react-hooks";
 import Web3MethodField from "./We3MethodField";
 
-import {ArgumentFields, UIFragment} from "@nw3c/types";
-import {useABIItemForm} from "@nw3c/hooks";
-import {JsonFragment} from "@ethersproject/abi";
+import {ArgumentFields, UIFragment} from "@peersky/react-types";
+import {useABIItemForm} from "@peersky/react-hooks";
+import {AbiFunction} from "abitype";
 import {useAccount, useContractWrite, usePrepareContractWrite} from "wagmi";
-import { parseUnits} from "viem";
 
 const Web3MethodForm = ({
     method,
@@ -44,7 +42,7 @@ const Web3MethodForm = ({
 }: {
     title?: string;
     key: string;
-    method: JsonFragment;
+    method: AbiFunction;
     className?: string;
     argumentFields?: ArgumentFields;
     hide?: string[];
@@ -79,24 +77,10 @@ const Web3MethodForm = ({
         }
     }, [state, argumentFields, onCancel]);
 
-    const web3call = async ({args}: {args: any}) => {
-        let response;
-        if (method.name) {
-            const {config} = usePrepareContractWrite({
-                address: contractAddress as any,
-                abi: [method],
-                functionName: [method.name] as any,
-                value: parseUnits(value, valueIsEther ? 18 : 1),
-            });
-            const {write} = useContractWrite(config);
-            response = write?.();
-        } else {
-            throw new Error("no method name");
-        }
-        return response;
-    };
-
-    const tx = useMutation(({args}: {args: any}) => web3call({args}), {
+    const tx = useContractWrite({
+        address: contractAddress as any,
+        abi: [method],
+        functionName: method.name as any,
         onSuccess: (resp) => {
             toast("Transaction went to the moon!", "success");
             onSuccess && onSuccess(resp);
@@ -111,10 +95,9 @@ const Web3MethodForm = ({
         } else {
             const returnedObject = getArgs();
             beforeSubmit && beforeSubmit(returnedObject);
-            tx.mutate({args: returnedObject});
+            tx.write({args: returnedObject});
         }
     };
-
 
     React.useEffect(() => {
         if (!tx.isLoading && wasSent) {

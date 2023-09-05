@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Flex, Text, Spacer, chakra } from "@chakra-ui/react";
 import { RouteButton } from "./RouteButton";
-import { UIContext } from "../providers/UIProvider/context";
+import { UIContext } from "@peersky/react-providers";
 
 const _NWCListItem = (item: {
   title: string;

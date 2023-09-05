@@ -1,6 +1,6 @@
 export type {SupportedChains} from "../../types";
 import {SupportedChains} from "./types";
-import {JsonFragment} from "@ethersproject/abi";
+import {AbiFunction} from "abitype";
 
 export interface FragmentBaseUIField {
     hide: boolean;
@@ -39,11 +39,12 @@ export type UIFragmentField =
     | UITupleFragmentField
     | UINUmberFragmentFieldArray
     | UIStringFragmentFieldArray;
-export interface UIFragment extends JsonFragment {
+
+export type UIFragment = AbiFunction & {
     ui: Array<UIFragmentField>;
     allBytesAsStrings?: boolean;
     allValuesAsEther?: boolean;
-}
+};
 
 export enum SiteMapItemType {
     EMPTY = 0,
@@ -82,7 +83,7 @@ export interface ChainInterface {
     rpcs: Array<string>;
 }
 
-export declare function GetMethodsAbiType<T>(abi: JsonFragment[], name: keyof T): JsonFragment;
+export declare function GetMethodsAbiType<T>(abi: AbiFunction[], name: keyof T): AbiFunction;
 
 export interface TokenInterface {
     address: string;

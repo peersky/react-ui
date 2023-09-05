@@ -1,15 +1,8 @@
 import {useContext} from "react";
 import {
     Button,
-    Image,
     useColorModeValue,
-    Skeleton,
-    Flex,
     chakra,
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
 } from "@chakra-ui/react";
 import {
     Modal,
@@ -21,7 +14,7 @@ import {
     ModalCloseButton,
     useDisclosure,
 } from "@chakra-ui/react";
-import wagmi, {useAccount, useConnect} from "wagmi";
+import {useAccount, useConnect} from "wagmi";
 const _Web3Button = ({colorScheme, ...props}: {colorScheme?: string}) => {
     const account = useAccount();
     const {connect, connectors, error, isLoading, pendingConnector} = useConnect();

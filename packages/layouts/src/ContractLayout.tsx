@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import useAppRouter from "../hooks/useRouter";
+import { useAppRouter } from "@peersky/react-hooks";
 import { getLayout as getSiteLayout } from "./AppLayout";
 import {
   Modal,
@@ -13,17 +13,18 @@ import {
   Input,
   chakra,
 } from "@chakra-ui/react";
-import Web3Context from "../providers/Web3Provider/context";
-import useToast from "../hooks/useToast";
-import { ethers } from "ethers";
+// import Web3Context from "../providers/Web3Provider/context";
+import {useToast} from "@peersky/react-hooks";
+import { isAddress } from "viem";
+import { useAccount } from "wagmi";
 const ContractLayout = ({
   children,
   ...props
 }: {
   children: React.ReactNode;
 }) => {
-  const web3ctx = useContext(Web3Context);
   const router = useAppRouter();
+  const account = useAccount();
   const toast = useToast();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [value, setValue] = React.useState("");
@@ -31,13 +32,13 @@ const ContractLayout = ({
   const { contractAddress } = router.query;
   const handleSubmit = () => {
     const _value = value.toLocaleLowerCase();
-    if (value && ethers.utils.isAddress(_value)) {
+    if (value && isAddress(_value)) {
       router.appendQuery("contractAddress", _value, true, false);
     } else {
       toast("Not an address", "error", "Not an address");
     }
   };
-  if (!contractAddress || !ethers.utils.isAddress(contractAddress))
+  if (!contractAddress || !isAddress(contractAddress))
     return (
       <Modal isOpen={true} onClose={() => {}}>
         <ModalOverlay />

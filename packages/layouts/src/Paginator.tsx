@@ -9,7 +9,7 @@ import {
   chakra,
   ScaleFade,
 } from "@chakra-ui/react";
-import { useAppRouter } from "../hooks/useRouter";
+import { useAppRouter } from "@peersky/react-hooks";
 
 const _Paginator = ({
   children,

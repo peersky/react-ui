@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import { FaGithub, FaTwitter, FaDiscord } from "react-icons/fa";
 import moment from "moment";
-import UIContext from "../providers/UIProvider/context";
+import { UIContext} from "@peersky/react-providers";
 const LINKS_SIZES = {
   fontWeight: "300",
   fontSize: "lg",

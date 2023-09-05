@@ -1,18 +1,18 @@
-import React, { useContext } from "react";
-import { Web3Context } from "../providers/Web3Provider/context";
 import { Web3Button } from "./Web3Button";
-import { Center, Heading, Fade, Spinner } from "@chakra-ui/react";
+import { Center, Heading, Spinner } from "@chakra-ui/react";
+import { useAccount } from "wagmi";
 
 export const RequireWeb3 = ({ children }: { children: any }) => {
-  const web3ctx = useContext(Web3Context);
+  const account = useAccount()
 
-  if (!web3ctx.account)
+  if (!account.isConnecting) return <Spinner />;
+  if (!account.isConnected)
     return (
       <Center flexDirection="column" pt={14}>
         <Heading size="md">This page requires web3 connection</Heading>
         <Web3Button pt={3} />
       </Center>
     );
-  if (!web3ctx.provider || !web3ctx.signer) return <Spinner />;
+
   else return children;
 };

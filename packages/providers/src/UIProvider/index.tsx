@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-// import { useBreakpointValue } from "@chakra-ui/react";
-import {useStorage} from "@nw3c/hooks";
+import {useStorage} from "@peersky/react-hooks";
 import UIContext from "./context";
 import { v4 as uuid4 } from "uuid";
 import { useBreakpointValue } from "@chakra-ui/react";
-import { WebSiteConfig } from "../../../types";
+import { WebSiteConfig } from "@peersky/react-types";
 import { useProSidebar } from "react-pro-sidebar";
 
 export const UIProvider = ({
@@ -122,4 +121,4 @@ export const UIProvider = ({
 };
 
 export default UIProvider;
-export * as UIContext from "./context";
+export * from "./context";

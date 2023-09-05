@@ -1,4 +1,3 @@
-import React from "react";
 import {
   Stack,
   Heading,
@@ -6,11 +5,10 @@ import {
   Box,
   Link as ChakraLink,
   Flex,
-  ChakraProps,
   As,
 } from "@chakra-ui/react";
 import { Link } from "@chakra-ui/next-js";
-import Web3 from "web3";
+import viem from "viem"
 const PixelsCard = ({
   text,
   heading,
@@ -27,8 +25,7 @@ const PixelsCard = ({
   level: As;
   disabled: boolean;
 }) => {
-  const web3 = new Web3();
-  const pixelseed = web3.utils.keccak256(heading);
+  const pixelseed = viem.keccak256(viem.toBytes(heading));
   const dimensions = Math.floor(pixelseed.length / 4);
   const boxSize = 20;
   return (

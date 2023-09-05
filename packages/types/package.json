@@ -1,5 +1,5 @@
 {
-  "name": "@nw3c/types",
+  "name": "@peersky/react-types",
   "version": "0.1.0",
   "description": "Web3 enabled react components made for nextjs and chakra ui",
   "main": "src/index.ts",
@@ -47,7 +47,7 @@
     "prettier": "^2.8.4",
     "tsup": "^7.0.0",
     "typechain": "^8.0.0",
-    "typescript": "4.9.5"
+    "typescript": "^5.0.4"
   },
   "dependencies": {},
   "repository": {
