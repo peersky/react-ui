@@ -231,7 +231,7 @@ const _SplitWithImage = ({
                                     //   }
                                     // }}
                                     mt={[0, 0, null, 16]}
-                                    size={!!buttonSize ? (socialButton ? buttonSize.double : buttonSize.single) : "md"}
+                                    size={buttonSize ? (socialButton ? buttonSize.double : buttonSize.single) : "md"}
                                     variant="outline"
                                     colorScheme={colorScheme}
                                     leftIcon={
@@ -249,7 +249,7 @@ const _SplitWithImage = ({
                                     maxW={["250px", null, "fit-content"]}
                                     variant="outline"
                                     mt={[0, 0, null, 16]}
-                                    size={!!buttonSize ? (socialButton ? buttonSize.double : buttonSize.single) : "md"}
+                                    size={buttonSize ? (socialButton ? buttonSize.double : buttonSize.single) : "md"}
                                     onClick={cta.onClick}
                                     // onClick={() => {
                                     //   if (mixpanel.get_distinct_id()) {

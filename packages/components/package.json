@@ -7,23 +7,12 @@
   "files": [
     "dist"
   ],
-  "tsup": {
-    "entry": [
-      "src/index.ts"
-    ],
-    "splitting": false,
-    "clean": true,
-    "target": "es2019",
-    "format": [
-      "cjs",
-      "esm"
-    ],
-    "keepNames": true,
-    "sourcemap": true
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc",
+    "pretty": "prettier --write ./src",
+    "lint:fix": "eslint ./ --ext js,jsx,ts,tsx --fix",
+    "lint": "eslint ./ --ext js,jsx,ts,tsx"
   },
   "author": "Peersky",
   "license": "MIT",
@@ -36,6 +25,7 @@
     "@types/uuid": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "eslint": "^8.34.0",
+    "eslint-plugin-promise": "^6.1.1",
     "eslint-config-next": "13.2.1",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
@@ -43,7 +33,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-unused-imports": "^2.0.0",
     "prettier": "^2.8.4",
-    "typescript": "=5.0.4"
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.17",

@@ -1,15 +1,15 @@
-import { chakra, Editable as _Editable } from "@chakra-ui/react";
-import { AbiItem } from "viem";
+import {chakra, Editable as _Editable} from "@chakra-ui/react";
+import {AbiItem} from "viem";
 
 const _ContractGenericState = ({
-  abi,
-  initalContractAddress,
-  ...props
+    abi,
+    initalContractAddress,
+    ...props
 }: {
-  abi: AbiItem[];
-  initalContractAddress?: string;
+    abi: AbiItem[];
+    initalContractAddress?: string;
 }) => {
-  return <></>;
+    return <></>;
 };
 
 const ContractGenericState = chakra(_ContractGenericState);

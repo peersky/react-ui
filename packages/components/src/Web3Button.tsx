@@ -1,9 +1,5 @@
 import {useContext} from "react";
-import {
-    Button,
-    useColorModeValue,
-    chakra,
-} from "@chakra-ui/react";
+import {Button, useColorModeValue, chakra} from "@chakra-ui/react";
 import {
     Modal,
     ModalOverlay,
