@@ -13,7 +13,7 @@
     "prettier" // eslint-config-prettier
   ],
   "ignorePatterns": ["dist/", "node_modules/"],
-  "plugins": ["promise"],
+  "plugins": ["promise", "react-hooks"],
   "globals": {
     "artifacts": "readonly",
     "contract": "readonly",

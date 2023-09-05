@@ -9,11 +9,10 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:promise/recommended",
     "prettier" // eslint-config-prettier
   ],
   "ignorePatterns": ["dist/", "node_modules/"],
-  "plugins": ["promise"],
+  "plugins": [],
   "globals": {
     "artifacts": "readonly",
     "contract": "readonly",

@@ -196,7 +196,7 @@ export const useABIItemForm = (fragment: AbiFunction, argumentFields?: ArgumentF
     const getArgs = () => {
         const extractTupleParams = (tuple: UITupleFragmentField) => {
             return tuple?.components?.map((internalElement: any): any =>
-                !!internalElement["components"]
+                internalElement["components"]
                     ? extractTupleParams(internalElement as UITupleFragmentField)
                     : internalElement
             );

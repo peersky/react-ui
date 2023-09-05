@@ -1,6 +1,6 @@
 {
   "name": "@peersky/utils",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Web3 enabled react components made for nextjs and chakra ui",
   "main": "src/index.ts",
   "type": "module",
@@ -23,7 +23,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc",
+    "pretty": "prettier --write ./src",
+    "lint:fix": "eslint ./ --ext js,jsx,ts,tsx --fix",
+    "lint": "eslint ./ --ext js,jsx,ts,tsx"
   },
   "author": "Peersky",
   "license": "MIT",

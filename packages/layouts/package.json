@@ -23,7 +23,10 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "build": "tsc",
+    "pretty": "prettier --write ./src",
+    "lint:fix": "eslint ./ --ext js,jsx,ts,tsx --fix",
+    "lint": "eslint ./ --ext js,jsx,ts,tsx"
   },
   "author": "Peersky",
   "license": "MIT",
@@ -47,7 +50,8 @@
     "prettier": "^2.8.4",
     "tsup": "^7.0.0",
     "typechain": "^8.0.0",
-    "typescript": "=5.0.4"
+    "eslint-plugin-promise": "^6.1.1",
+    "typescript": "^5.0.4"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.17",

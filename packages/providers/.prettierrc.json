@@ -1,14 +1,13 @@
 {
   "overrides": [
     {
-      "files": ["*.ts", ".tsx"],
+      "files": ["*.ts", "*.tsx"],
       "options": {
         "printWidth": 120,
         "tabWidth": 4,
         "useTabs": false,
         "singleQuote": false,
-        "bracketSpacing": false,
-        "explicitTypes": "always"
+        "bracketSpacing": false
       }
     }
   ]

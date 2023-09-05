@@ -1,27 +1,22 @@
-import { Box, chakra, Flex } from "@chakra-ui/react";
-import { Suspense } from "react";
+import {Box, chakra, Flex} from "@chakra-ui/react";
+import {Suspense} from "react";
 import React from "react";
 import {Footer} from "@peersky/react-components";
 import {Navbar} from "@peersky/react-components";
 import {Scrollable} from "@peersky/react-components";
-import {_Sidebar } from "@peersky/react-components";
+import {_Sidebar} from "@peersky/react-components";
 // import RootLayout from "./RootLayout";
 
-const _LayoutWrapper = ({
-  children,
-  ...props
-}: {
-  children: React.ReactNode;
-}) => {
-  return (
-    // <RootLayout {...props}>
+const _LayoutWrapper = ({children, ...props}: {children: React.ReactNode}) => {
+    return (
+        // <RootLayout {...props}>
 
-    <Scrollable className="Main">
-      <Navbar
+        <Scrollable className="Main">
+            <Navbar
 
-      // colorScheme={components.Navbar.colorScheme}
-      />
-      {/* <Flex
+            // colorScheme={components.Navbar.colorScheme}
+            />
+            {/* <Flex
          direction="row"
          id="PeerApp"
          className="Main"
@@ -29,33 +24,31 @@ const _LayoutWrapper = ({
          h="100%"
          maxH="100%"
        > */}
-      {/* <Suspense fallback="">
+            {/* <Suspense fallback="">
        </Suspense> */}
-      <_Sidebar />
-      <Flex
-        mt="84px"
-        direction="column"
-        flexGrow={1}
-        flexBasis="100px"
-        overflowX="hidden"
-        // overflowY={"scroll"}
-      >
-        <Suspense fallback=""></Suspense>
-        {/* <Flex> </Flex> */}
-        {children}
-      </Flex>
-      {/* </Flex> */}
-      {/* <Footer /> */}
-      <Footer />
-    </Scrollable>
-    // </RootLayout>
-  );
+            <_Sidebar />
+            <Flex
+                mt="84px"
+                direction="column"
+                flexGrow={1}
+                flexBasis="100px"
+                overflowX="hidden"
+                // overflowY={"scroll"}
+            >
+                <Suspense fallback=""></Suspense>
+                {/* <Flex> </Flex> */}
+                {children}
+            </Flex>
+            {/* </Flex> */}
+            {/* <Footer /> */}
+            <Footer />
+        </Scrollable>
+        // </RootLayout>
+    );
 };
 
 const LayoutWrapper = chakra(_LayoutWrapper);
-export const getLayout = (page: React.ReactNode) => (
-  <LayoutWrapper>{page}</LayoutWrapper>
-);
+export const getLayout = (page: React.ReactNode) => <LayoutWrapper>{page}</LayoutWrapper>;
 
 export default LayoutWrapper;
 export * as AppLayout from "./AppLayout";
